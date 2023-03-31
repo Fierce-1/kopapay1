@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     mainView:{
         justifyContent:'center',
         alignItems:'center',
-        flex:1,
+        flexGrow:1,
         backgroundColor: '#F4FFFE'
     },
     logoView:{

@@ -23,8 +23,7 @@ const Profilepage = ({navigation}) => {
     const [showModalid,setShowModalID] = React.useState(false)
     const [showModalCont,setShowModalCont] = React.useState(false)
     const [idNumber,setIdNumber] = React.useState('')
-    const logo =  require("../assets/images/kopapayBlack.png");
-    
+
     const handleButtonClickID = () => {
         setShowModalID(true);
     }
@@ -39,6 +38,28 @@ const Profilepage = ({navigation}) => {
     }
 
     const handleIdPhotoClick = async (check) => {
+        try {
+          const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.CAMERA,
+            {
+              title: 'Camera Permission',
+              message: 'This app needs access to your camera to take pictures.',
+              buttonNeutral: 'Ask Me Later',
+              buttonNegative: 'Cancel',
+              buttonPositive: 'OK',
+            },
+          );
+          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            console.log('Camera permission granted');
+          } else {
+            console.log('Camera permission denied');
+            return;
+          }
+        } catch (err) {
+          console.warn(err);
+          return;
+        }
+      
         const takePhoto = (photoName) => {
           const options = {
             title: `Take ${photoName} photo`,
@@ -75,11 +96,11 @@ const Profilepage = ({navigation}) => {
       
 
     return(
-        <View style={styles.mainView}>
-            <App_icon imgStyle={styles.logo} img={logo}/>
+        <ScrollView contentContainerStyle={styles.mainView}>
+            <App_icon imgStyle={styles.logo}  img={logo} />
             <View style={styles.userDetailView}>
 
-                <View style={styles.setFlex(2.3)}>
+                <View >
                     <Profile_Detail viewDetail={styles.userDetailInside} textDetail1={styles.text('bold','50%','black')} textDetail2={styles.text('normal','50%','black')} data1={'Name'} data2={name}/>
                     <Profile_Detail viewDetail={styles.userDetailInside} textDetail1={styles.text('bold','50%','black')} textDetail2={styles.text('normal','50%','black')} data1={'Phone Number'} data2={number}/>
                     <Profile_Detail viewDetail={styles.userDetailInside} textDetail1={styles.text('bold','50%','black')} textDetail2={styles.text('normal','50%','black')} data1={'Email Address'} data2={email}/>
@@ -88,7 +109,7 @@ const Profilepage = ({navigation}) => {
                     <Profile_Detail viewDetail={styles.userDetailInside} textDetail1={styles.text('bold','50%','black')} textDetail2={styles.text('normal','50%','black')} data1={'Location'} data2={Location}/>
                 </View>
                 
-                <View style={styles.setFlex(4)}>
+                <View style={{marginTop:'5%'}}>
                     <Add_Detail viewDetail={styles.userDetailInside} textDetail1={styles.text('bold','40%','black')} textDetail2={styles.text('normal','20%','#14FA47')} data1={'ID Photo'} onPress={()=> {
                       Alert.alert(
                         'Take Both Front and Back ID Photo',
@@ -117,7 +138,7 @@ const Profilepage = ({navigation}) => {
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.passwordReset} onPress={()=>navigation.navigate('reset')}>
-                        <Text style={styles.text('bold',windowWidth*0.37,'#14FA47')}>Reset Password</Text>
+                        <Text style={styles.text('bold',windowWidth*0.35,'#14FA47')}>Reset Password</Text>
                         <FontAwesome name="lock" color={'black'} size={28} />
                     </TouchableOpacity>
                 </View>
@@ -141,7 +162,7 @@ const Profilepage = ({navigation}) => {
               
             </Popup>
             
-        </View>
+        </ScrollView>
     )
 }
 
@@ -150,7 +171,7 @@ export default Profilepage;
 const styles = StyleSheet.create({
     
     mainView:{
-        flex:1,
+        flexGrow:1,
         backgroundColor:'white',
         alignItems:'center'
     },
@@ -163,9 +184,6 @@ const styles = StyleSheet.create({
         width:'100%',
         alignItems:'center',
     }, 
-    setFlex: (flex) => ({
-        flex:flex
-    }),
     userDetailInside: {
         width:'80%',
         flexDirection:'row',

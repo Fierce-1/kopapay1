@@ -18,7 +18,7 @@ function Logo(props) {
     
     return(
         <View style={styles.contianer}>
-            <App_icon imgStyle={{height: windowHeight * 0.3, width: windowWidth * 0.6}} img={logo}/>
+            <App_icon imgStyle={{height: windowHeight * 0.2, width: windowWidth * 0.4}} img={logo}/>
             <App_text textStyle={styles.text} text="Your Financial Freedom" />
             <View style={{marginBottom: '30%', backgroundColor: 'white'}}></View>
         </View>

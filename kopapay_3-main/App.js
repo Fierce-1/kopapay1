@@ -7,7 +7,7 @@ import Privacy from './screens/privacy_policy';
 import Drawer_navigator from './components/drawer';
 import Loan_c from './screens/loan_confirm';
 import Livechat from './screens/live_chat';
-import Login from './screens/Login';
+import Login1 from './screens/Login';
 import Signup from './screens/Signup';
 import Reset from './screens/resetPage';
 import MyTabs from './components/tab';
@@ -33,11 +33,11 @@ const App = () => {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName='kopa_pay_home'>
         <Stack.Screen name="Logo" component={Logo} options={{headerShown: false}}/>
         <Stack.Screen name="term_condition" component={Term} options={{headerShown: false}}/>
         <Stack.Screen name="privacy_policy" component={Privacy} options={{headerShown: false}}/>
-        <Stack.Screen name="login" component={Login} options={{headerShown:false}} />
+        <Stack.Screen name="login" component={Login1} options={{headerShown:false}} />
         <Stack.Screen name="signup" component={Signup} options={{headerShown:false}} />
         <Stack.Screen name="reset" component={Reset} options={{headerShown:false}} />
         <Stack.Screen name="Become a Lender" component={BecomeLender} options={{headerTitleAlign: 'center'}} />

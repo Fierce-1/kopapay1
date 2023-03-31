@@ -570,7 +570,7 @@ const styles = StyleSheet.create({
     btnTextStyle_second: {
         color: '#3467FF',
         alignSelf: 'center',
-        fontSize: 11,
+        fontSize: 10,
         fontWeight: 'bold',
 
     },
@@ -604,7 +604,7 @@ const styles = StyleSheet.create({
         color: 'black',
         alignSelf: 'center',
         fontWeight: 'bold',
-        fontSize: 20
+        fontSize: 16
     },
     btn_third_view_1:{
         backgroundColor: '#ECFFFE',
