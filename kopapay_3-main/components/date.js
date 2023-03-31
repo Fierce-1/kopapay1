@@ -24,7 +24,7 @@ const Date_Box = (props) => {
   return (
     <View style={styles.container}>
       <TextInput
-        style={{backgroundColor:'white',color:'#AF9999',marginStart:'4%'}}
+        style={{backgroundColor:'white',color:'#000',marginStart:'4%'}}
         placeholder='2005-01-01'
         placeholderTextColor='#AF9999'
         value={dateSelected ? date.toISOString().slice(0, 10) : ''}

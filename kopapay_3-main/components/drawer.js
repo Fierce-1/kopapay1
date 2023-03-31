@@ -1,5 +1,5 @@
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
-import {Image, View, StyleSheet, TouchableOpacity, Dimensions} from 'react-native'
+import {Image, View, StyleSheet, TouchableOpacity, Dimensions, ScrollView} from 'react-native'
 import React, {useState} from 'react';
 import Home from '../screens/home';
 import App_icon from './logo';
@@ -15,6 +15,7 @@ function Drawer_navigator({route}){
     const logo=require('../assets/images/kopapayGreen.png')
     const CustomDrawerHeader = ({navigation}) => {
         return (
+            <ScrollView contentContainerStyle={{flex: 1}}>
             <View style={styles.container2}>
                 <View style={styles.container1('12%')}>
                     <App_icon imgStyle={{ height: windowHeight * 0.1, width: windowWidth * 0.2}} img={logo}/>
@@ -80,6 +81,7 @@ function Drawer_navigator({route}){
                 </TouchableOpacity>
                 <View style={styles.container1('11%')} />
             </View>
+            </ScrollView>
         );
       };
 

@@ -125,7 +125,7 @@ const PersonalDetails = ({navigation}) => {
           onPress={()=>{
             if (firstname.length>0 && lastname.length>0 && email.length>0 && selectedValue.length>0 && Location.length>0 ){
               if (new Date("2007-01-01") > date){
-                navigation.navigate('home')
+                navigation.navigate('kopa_pay_home')
               }
 
             }
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     },
     dropDownStyle: {
       backgroundColor: 'white',
-      color: '#AF9999'
+      color: '#000'
     },
     dropDownWrapper: {
       backgroundColor:"white",
