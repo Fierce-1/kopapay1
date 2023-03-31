@@ -37,6 +37,7 @@ const Profilepage = ({navigation}) => {
         setShowModalCont(false);
     }
 
+    const logo =  require("../assets/images/kopapayBlack.png");
     const handleIdPhotoClick = async (check) => {
         try {
           const granted = await PermissionsAndroid.request(
@@ -176,6 +177,8 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     logo:{
+        marginTop: '5%',
+        marginBottom: '20%',
         height: windowHeight * 0.1, 
         width: windowWidth * 0.2
     },

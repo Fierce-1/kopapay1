@@ -23,7 +23,7 @@ const Login1 = ({navigation}) => {
       contentContainerStyle={styles.mainView}>
       
       <View style={styles.logoView}>
-        <App_icon imgStyle={styles.logoStyle}  img={logo} />
+        <App_icon imgStyle={styles.logoStyle} img={logo} />
       </View>
 
       <View style={styles.textInputView}>

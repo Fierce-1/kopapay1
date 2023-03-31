@@ -114,7 +114,7 @@ const Signup = ({navigation}) => {
           <TouchableOpacity style={styles.buttonStyle} 
           onPress={() =>
           { 
-            if (phoneNumber.length===9 && password.length===4 && otp.length>0 && confirmPassword.length===4){
+            if (phoneNumber.length===9 && password.length>=4 && otp.length>0 && confirmPassword.length>=4){
               if (password === confirmPassword){
                 navigation.navigate('person')
               }
