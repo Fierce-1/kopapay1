@@ -48,6 +48,7 @@ const LenderHome = ({navigation}) =>{
     const image = require("../assets/images/Vector.png")
 
     return(
+        <ScrollView>
         <View style={styles.container1}>
             {/* <App_text text='hello' textStyle={styles.txt}></App_text> */}
             <View style={styles.container2}>
@@ -147,6 +148,7 @@ const LenderHome = ({navigation}) =>{
 
             </View>
         </View>
+        </ScrollView>
 
     );
 }
@@ -298,7 +300,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 20,
-        margin: 10
+        margin: 25
     },
     depositbtn:{
         backgroundColor: '#3467FF',

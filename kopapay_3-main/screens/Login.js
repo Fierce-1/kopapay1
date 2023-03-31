@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions, TouchableOpacity, Platform, Alert, Linking,ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity, KeyboardAvoidingView, Platform, Alert, Linking,ScrollView } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import App_icon from '../components/logo';
 import PasswordInput from '../components/password';
@@ -8,20 +8,20 @@ import Phone_Box from '../components/phoneNumberTextInput';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const Login1 = ({navigation}) => {
+const Login = ({navigation}) => {
   const [phoneNumber, setPhoneNumber] = React.useState('');
   const [countryCode, setCountryCode] = React.useState('KE');
   const [password, setPassword] = React.useState('');
-  const logo =  require("../assets/images/kopapayBlack.png");
 
   const inputCode = (country) => {
     setCountryCode(country.cca2);
   };
-  
+  const logo = require('../assets/images/kopapayBlack.png')
   return (
+
     <ScrollView
       contentContainerStyle={styles.mainView}>
-      
+        
       <View style={styles.logoView}>
         <App_icon imgStyle={styles.logoStyle} img={logo} />
       </View>
@@ -94,15 +94,14 @@ const Login1 = ({navigation}) => {
     </TouchableOpacity>
 
     </ScrollView>
+
   );
 };
 
-export default Login1;
+export default Login;
 
 const styles = StyleSheet.create({
     mainView:{
-        justifyContent:'center',
-        alignItems:'center',
         flexGrow:1,
         backgroundColor: '#F4FFFE'
     },
@@ -135,6 +134,13 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         padding: 5,
         marginBottom:15,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
 
         elevation: 5,
     },
@@ -185,6 +191,7 @@ const styles = StyleSheet.create({
         color:'#9A9999',
         fontSize:14,
         fontWeight:'bold',
+        alignSelf: 'center',
         fontFamily: 'Montserrat'
     }
 })

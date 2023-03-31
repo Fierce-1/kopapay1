@@ -12,7 +12,6 @@ import Contact from '../components/Contact';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-
 const Profilepage = ({navigation}) => {
     const [name,setName] = React.useState('kieran munyi')
     const [number,setNumber] = React.useState('254787898789')
@@ -39,27 +38,6 @@ const Profilepage = ({navigation}) => {
 
     const logo =  require("../assets/images/kopapayBlack.png");
     const handleIdPhotoClick = async (check) => {
-        try {
-          const granted = await PermissionsAndroid.request(
-            PermissionsAndroid.PERMISSIONS.CAMERA,
-            {
-              title: 'Camera Permission',
-              message: 'This app needs access to your camera to take pictures.',
-              buttonNeutral: 'Ask Me Later',
-              buttonNegative: 'Cancel',
-              buttonPositive: 'OK',
-            },
-          );
-          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-            console.log('Camera permission granted');
-          } else {
-            console.log('Camera permission denied');
-            return;
-          }
-        } catch (err) {
-          console.warn(err);
-          return;
-        }
       
         const takePhoto = (photoName) => {
           const options = {
@@ -132,15 +110,14 @@ const Profilepage = ({navigation}) => {
                         ],
                       );
                       }}/>
-                    <Add_Detail viewDetail={styles.userDetailInside} textDetail1={styles.text('bold','40%','black')} textDetail2={styles.text('normal','20%','#14FA47')} data1={'Close Contacts'} onPress={handleButtonClickContacat}/>
+                    <Add_Detail viewDetail={styles.userDetailInside} textDetail1={styles.text('bold','40%','black')} textDetail2={styles.text('normal','20%','#14FA47')} data1={'Contacts'} onPress={handleButtonClickContacat}/>
                 
                     <TouchableOpacity style={{alignItems:'center',marginTop:'3%'}}>
                         <Text style={styles.text('bold','40%','#14FA47')}>Request review</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.passwordReset} onPress={()=>navigation.navigate('reset')}>
-                        <Text style={styles.text('bold',windowWidth*0.35,'#14FA47')}>Reset Password</Text>
-                        <FontAwesome name="lock" color={'black'} size={28} />
+                        <Text style={styles.passwordText}>Reset Password   <FontAwesome name="lock" color={'black'} size={28} /></Text>                        
                     </TouchableOpacity>
                 </View>
                 
@@ -177,8 +154,7 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     logo:{
-        marginTop: '5%',
-        marginBottom: '20%',
+        margin: '5%',
         height: windowHeight * 0.1, 
         width: windowWidth * 0.2
     },
@@ -209,13 +185,16 @@ const styles = StyleSheet.create({
         width:width,
         fontWeight:weight,
         color:color,
-        marginBottom:5
+        marginBottom:5,
     }),
+    passwordText:{
+      fontSize:18,
+      fontFamily: 'Montserrat',
+      fontWeight:'bold',
+      color:'#14FA47',
+    },
     passwordReset:{
-        alignItems:'center',
-        marginTop:'10%',
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'center',
-    }
+      alignItems:'center',
+      marginTop:'10%',
+  }
 })

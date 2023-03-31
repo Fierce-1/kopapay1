@@ -23,6 +23,7 @@ const Signup = ({navigation}) => {
   const logo =  require("../assets/images/kopapayBlack.png");
 
   return (
+    
     <ScrollView
     contentContainerStyle={styles.mainView}
     >

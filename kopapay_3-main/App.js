@@ -33,7 +33,7 @@ const App = () => {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName='lender'>
         <Stack.Screen name="Logo" component={Logo} options={{headerShown: false}}/>
         <Stack.Screen name="term_condition" component={Term} options={{headerShown: false}}/>
         <Stack.Screen name="privacy_policy" component={Privacy} options={{headerShown: false}}/>
